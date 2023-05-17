@@ -20,6 +20,13 @@ app.get('/courses', (req, res) => {
     res.send(courses)
 })
 
-app.listen(port, ()=>{
+
+app.get('/course/:id', (req, res) => {
+    const id = req.params.id;
+    const selectedCourse = courses.find(c => c.id === id)
+    res.send(selectedCourse)
+})
+
+app.listen(port, () => {
     console.log('server is running on port', port)
 })
